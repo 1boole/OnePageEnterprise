@@ -1,0 +1,26 @@
+<nav>
+    <div class="container">
+        <div id="logo"><a href="" class="uns-teknoloi">
+                {% if settings %}
+                {% for setting1 in settings %}
+                <img id="logo-image" src="{{ setting1.Logo.url }}" alt=""></a>
+                {% endfor %}
+                {% endif %}
+        </div>
+        <div id="bar-icon">
+            <i class="menu-toggle-btn fas fa-bars"></i>
+        </div>
+        <div id="menu">
+            <ul class="upperCase">
+                <li class="menu-item"><a href="#top"><i class="fas fa-home"></i>Home</a></li>
+                <li class="menu-item"><a href="#division-3-career"><i class="fas fa-user-check"></i>Career</a>
+                </li>
+                <li class="menu-item"><a href="#division-1-main"><i class="fas fa-newspaper"></i>News</a></li>
+                <li class="menu-item"><a href="#sss"><i class="fas fa-question"></i>S.S.S</a></li>
+                <li class="menu-item"><a href="#form-email"><i class="fas fa-id-card"></i>About</a></li>
+                <li class="menu-item"><a href="#divison-footer"><i class="fas fa-id-card"></i>Contact</a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,24 @@
+<div class="image-header">
+    <div class="carousel-one">
+        {% if sliders %}
+        {% for mySlides in sliders %}
+        <div class="mySlides fade-In">
+            <img src="{{  mySlides.Photo.url }}" />
+        </div>
+        {% endfor %}
+        <!--Next and previous buttons start-->
+        <a class="prev-slide" style="font-size:40px;">&#10094;</a>
+        <a class="next-slide" style="font-size:40px;">&#10095;</a>
+        <!--Next and previous buttons end-->
+        <!--dots start-->
+      
+        <div class="dots">
+            {% for mySlides in sliders %}
+            <span class="dot "></span>
+            {% endfor %}
+        </div>
+    </div>      
+</div>
+
+        {% else %}
+        {% endif %}

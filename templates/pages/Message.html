@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body style="background-color: darkgreen; margin:0; padding:0; align-items: center;">
+
+<h1 style="text-align: center;"><a href="{% url 'index' %}" style="color: inherit; text-decoration: inherit;">You Message Saved Click return Website: 
+    {% if settings %}
+    {% for setting in settings %}{{ setting.Title }}
+    {% endfor %}
+    {% endif %}
+</a></h1>
+<center><img src="https://64.media.tumblr.com/tumblr_mcdo99KhFZ1rq85bjo1_400.gifv" style="align-items: center;" alt=""> </center>
+
+</body>
+</html>

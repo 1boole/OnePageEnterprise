@@ -1,0 +1,20 @@
+
+<!-- footer -->
+<footer>
+    <div id="divison-footer">
+        {% if footers %}
+        {% for footer in footers %}
+        <p style="color: white;"> 
+            Design by <a href="{{ footer.CompanyLink }}" target="_blank">{{ footer.CompanyName }}</a>
+        </p>
+        <address>
+            <p style="color: white;">{{ footer.Text }}<br>
+                Mail:<a href="mailto:{{ footer.Mail }}">{{ footer.Mail }}</a><br>
+                Tel:<a href="tel:{{ footer.Phone }}">{{ footer.Phone }}</a>
+            </p>
+        </address>
+        {% endfor %}
+        {% else %}
+        {% endif %}
+    </div>
+</footer>

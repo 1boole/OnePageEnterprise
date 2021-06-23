@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<!--  de başla -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if settings %}
+    {% for setting1 in settings %}
+    <title>{{ setting1.Title }}</title>
+    <link rel="icon" href="{{ setting1.Icon.url }}" type="image/x-icon" />
+    <meta name="description" content="{{ setting1.Description }}">
+    <meta name="keywords" content="{{ setting1.Keywords }}">
+    <meta name="author" content="{{ setting1.Title }}">
+    <meta name="title" content="{{ setting1.Title }}">
+    {% endfor %}
+    {% else %}
+    {% endif %}
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/unsteknoloji_style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{% static 'js/unsteknoloji_main.js' %}"></script>
+</head>
+
+<body>
+    <header>
+        {% include 'partials/_navbar.html' %}
+        {% include 'partials/_slider.html' %}
+    </header>
+
+    <main>
+        <!-- section-1 -->
+        {% if sections1 %}
+        {% for section1 in sections1 %}
+        <section id="division-1-main">
+            <div class="piece-left">
+                <h2>{{ section1.Title }}</h2>
+                <p>{{ section1.Text }}</p>
+            </div>
+        </section>
+        {% endfor %}
+        {% else %}
+        {% endif %}
+
+        <!-- section-2 -->
+
+        <section id="division-2-list">
+            <ul>
+                {% if sections2 %}
+                {% for section2 in sections2 %}
+                <li>
+                    <div class="area">
+                        <img src="{{ section2.Photo.url }}" alt="{{ section2.Title }}">
+                        <div class="area-div">
+                            <h3>{{ section2.Title }}</h3>
+                            <p>{{ section2.Text }}</p>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+                {% endif %}
+            </ul>
+        </section>
+
+        {% if sections3 %}
+        {% for section3 in sections3 %}
+        <section id="division-1-main">
+            <div class="piece-left">
+                <h2>{{ section3.Title }}</h2>
+                <p>{{ section3.Text }}</p>
+            </div>
+        </section>
+        {% endfor %}
+        {% endif %}
+
+        {% if sections4 %}
+        {% for section4 in sections4 %}
+        <section id="division-3-career">
+            <div id="left-main" style="background-image: url('{{ section4.Photo.url }}');">
+            </div>
+            <div id="right-main">
+                <p>{{ section4.Text }}</p>
+            </div>
+        </section>
+        {% endfor %}
+        {% endif %}
+
+
+        {% if sections5 %}
+        {% for section5 in sections5 %}
+        <section id="division-contact">
+            <div class="piece-left">
+                <h2>{{ section5.Title}}</h2>
+                <p>{{ section5.Text }}</p>
+            </div>
+        </section>
+        {% endfor %}
+        {% endif %}
+        
+        <section id="form-email" class="clearfix">
+            <div class="col75 clearfix" style="margin-bottom: 5rem;">
+                <h4>MAPS</h4>
+                <div class="mapouter">
+                    <div class="gmap_canvas"><iframe width="100%" height="500" id="gmap_canvas"
+                            src="https://maps.google.com/maps?q=istanbul%20&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+                            href="https://123movies-a.com"></a><br>
+                        <style>
+                            .mapouter {
+                                position: relative;
+                                text-align: right;
+                                height: 500px;
+                                width: 100%;
+                            }
+                        </style><a href="https://www.embedgooglemap.net">google maps embedded api</a>
+                        <style>
+                            .gmap_canvas {
+                                overflow: hidden;
+                                background: none !important;
+                                height: 500px;
+                                width: 100%;
+                            }
+                        </style>
+                    </div>
+                </div>
+            </div>
+            </form>
+
+            <div class="col25 clearfix" style="margin-bottom: 5rem;">
+                <h4>MAIL</h4>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-group-all">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="fullName" id="fullName"
+                                placeholder="Adınız ve soyadınız" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" type="email" name="email" id="email"
+                                placeholder="Email adresiniz" required>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea placeholder="Mesajınız" class="form-control" name="message" id="message" cols="30"
+                                rows="10"></textarea>
+                        </div>
+                        <input style="width: 85%;" class="btn" type="reset" value="Temizle">
+                        <br><br>
+                        <input style="width: 85%;" class="btn" type="submit" value="Gönder">
+                    </div>
+            </div>
+            </form>
+        </section>
+
+    </main>
+
+    <div id="bottom">
+        <a href="#top"><i class="fas fa-arrow-up"> Top</i></a>
+    </div>
+
+    {% include 'partials/_footer.html' %}
+
+</body>
+
+</html>
